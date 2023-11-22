@@ -33,12 +33,47 @@
 
     <script>
       function signOut() { // Handle sign-out logic // Example:
-      window.location.href = "/"; } function previewImage(event) { const input =
-      event.target; const preview = document.getElementById('imagePreview'); if
-      (input.files && input.files[0]) { const reader = new FileReader();
-      reader.onload = function (e) { const img = document.createElement('img');
-      img.src = e.target.result; img.classList.add('small-image');
-      preview.appendChild(img); }; reader.readAsDataURL(input.files[0]); } }
-    </script>
+      window.location.href = "/"; } 
+  function previewImage(event) {
+    const input = event.target;
+    const preview = document.getElementById('imagePreview');
+
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.classList.add('small-image');
+        preview.appendChild(img);
+
+        // Send the image data to the server
+        uploadImage(input.files[0]);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  async function uploadImage(file) {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+      const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log('Image uploaded successfully!');
+      } else {
+        console.error('Error uploading image');
+      }
+    } catch (error) {
+      console.error('Error uploading image', error);
+    }
+  }
+</script>
   </body>
 </html>
