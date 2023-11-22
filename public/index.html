@@ -1,0 +1,87 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+  <div class="contanier">
+    <div class="navl">
+      <h1 class="logo_names">ImageHub</h1>
+      <button class="sign_up" id="signUpBtn">
+        Sign Up
+      </button>
+    </div>
+    <div class="main">
+      <div class="hero">
+        <h1 class="tagline">
+          Empower Your Visual Story: Effortless Upload, Precision Crafting,
+          Infinite Exploration
+        </h1>
+        <p class="below_tagline">
+          Ready to turn moments into masterpieces? Click here to begin your
+          visual journey through seamless image uploading and precision
+          crafting.
+        </p>
+        <div class="btn">
+          <button class="started" id="btn_sign">
+            Start Your Journey
+          </button>
+        </div>
+      </div>
+      <div class="hero_img">
+        <img src="images/img.png" alt="main" loading="lazy" class="image" />
+      </div>
+    </div>
+    <div class="foot">
+      <p class="about_me">Made with ❤️ by Hanish</p>
+    </div>
+  </div>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCuQqwfaQgSXZywpK8J1xryyKVvArQcNrQ",
+      authDomain: "auth-ed4a2.firebaseapp.com",
+      projectId: "auth-ed4a2",
+      storageBucket: "auth-ed4a2.appspot.com",
+      messagingSenderId: "457650395366",
+      appId: "1:457650395366:web:df861ca430ab08bd324327"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth();
+
+    // Google Sign-In
+    const googleSignInBtn = document.getElementById("btn_sign");
+    googleSignInBtn.addEventListener("click", () => {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // You can access the signed-in user details using result.user
+          console.log("Google Sign-In Successful", result.user);
+          // Redirect to the next page after successful sign-in
+          window.location.href = "/signup";
+        })
+        .catch((error) => {
+          console.error("Google Sign-In Error", error);
+        });
+    });
+
+    const signUpBtn = document.getElementById("signUpBtn");
+    signUpBtn.addEventListener("click", () => {
+      // Handle sign-up logic
+      console.log("Sign Up button clicked");
+    });
+  </script>
+</body>
+
+</html>

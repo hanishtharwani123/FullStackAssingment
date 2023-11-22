@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImageHub Main Page</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navl">
+        <h1 class="logo_names">ImageHub</h1>
+        <button class="sign_up" onclick="signOut()">
+          Sign Out
+        </button>
+      </div>
+      <div class="main">
+        <h1 class="tags">Journey through a visual tapestry; click, explore, and
+          let each image tell its unique story in our captivating gallery.</h1>
+        <form action="">
+          <div class="flex">
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              onchange="previewImage(event)"
+            />
+          </div>
+        </form>
+        <div class="image-preview" id="imagePreview"></div>
+      </div>
+    </div>
+
+    <script>
+      function signOut() { // Handle sign-out logic // Example:
+      window.location.href = "/"; } function previewImage(event) { const input =
+      event.target; const preview = document.getElementById('imagePreview'); if
+      (input.files && input.files[0]) { const reader = new FileReader();
+      reader.onload = function (e) { const img = document.createElement('img');
+      img.src = e.target.result; img.classList.add('small-image');
+      preview.appendChild(img); }; reader.readAsDataURL(input.files[0]); } }
+    </script>
+  </body>
+</html>

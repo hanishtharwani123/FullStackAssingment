@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: rgb(55 0 85);
+}
+
+.contanier {
+    width: 100%;
+}
+
+.navl {
+    width: 100%;
+    padding: 17px 40px;
+    display: flex;
+    justify-content: space-between;
+    height: 78px;
+    background: #c000fd;
+    align-items: center;
+}
+
+.logo_names {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+
+.sign_up {
+    width: 174px;
+    height: 48px;
+    text-align: center;
+    background-color: red;
+    color: #fff;
+    border: 0;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+    padding-bottom: 2.5px;
+}
+
+.main {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    margin-top: 78px;
+}
+
+.tags {
+    text-align: center;
+    font-size: 43px;
+    font-weight: 600;
+    color: #fff;
+    width: 1100px;
+}
+
+form {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    margin-top: 50px;
+    grid-gap: 20px;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    background: #c000fd;
+    border-radius: 4px;
+    padding: 19px;
+    width: 285px;
+    align-items: center;
+
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+}
+
+
+input {
+    border: 0;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #fff;
+}
+
+button {
+    width: 160px;
+    height: 50px;
+    border: 0;
+    border-radius: 6px;
+    background: red;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Add some styles to make the small images */
+.small-image {
+    width: 320px;
+    height: 280px;
+    margin: 25px 20px;
+}
+
+.image-preview {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 15px;
+    margin-top: 40px;
+
+}
