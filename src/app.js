@@ -8,7 +8,7 @@ const port = 3000;
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect("mongodb://localhost:27017/your-database-name", {
+mongoose.connect("mongodb://localhost:27017/register", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
